@@ -4,15 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>핀치 줌 테스트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        .map-area {
-            width: 380px;
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 780px;
             height: 100vh;
-            margin: 0 auto;
+        }
+        .map-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10%;
+            right: 20px;
         }
         object, img {
             display: block;
@@ -25,10 +42,24 @@
     </style>
 </head>
 <body>
-    <div class="map-area">
-        <object data="./ori.svg" type="image/svg+xml">
-            <img src="./ori.svg" alt="지도">
-        </object>
+    <div class="container">
+        <button class="map-btn" type="button">지도 버튼</button>
+        <div class="map-area">
+            <object data="./spring.svg" type="image/svg+xml">
+                <img src="./spring.svg" alt="지도">
+            </object>
+            <button class="close-btn" type="button">닫기</button>
+        </div>
     </div>
+    <script>
+        $(function(){
+            $(".close-btn").on("click", function() {
+                $(this).parents(".map-area").hide();
+            });
+            $(".map-btn").on("click", function() {
+                $(this).next(".map-area").show();
+            });
+        });
+    </script>
 </body>
 </html>
