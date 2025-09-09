@@ -14,12 +14,15 @@
             width: 100%;
             max-width: 780px;
             height: 100vh;
+            margin: 0 auto;
         }
         .map-area {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
+            max-width: 780px;
             height: 100vh;
             background: rgba(0, 0, 0, 0.5);
             display: flex;
@@ -45,8 +48,8 @@
     <div class="container">
         <button class="map-btn" type="button">지도 버튼</button>
         <div class="map-area">
-            <object data="./spring.svg" type="image/svg+xml">
-                <img src="./spring.svg" alt="지도">
+            <object data="./10.jpg" type="image/jpg+xml">
+                <img src="./10.jpg" alt="지도">
             </object>
             <button class="close-btn" type="button">닫기</button>
         </div>
